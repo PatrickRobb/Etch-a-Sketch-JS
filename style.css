@@ -1,0 +1,42 @@
+div{
+    margin:0px;
+    padding:0px;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    padding:20px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: bisque;
+}
+
+#options{
+    display: flex;
+    justify-content: space-around;
+}
+
+.body{
+    display: flex;
+    flex-direction: column;
+    margin: 50px;
+    border: 6px solid black;
+    width: 40vw;
+    height: 40vw;
+}
+
+.flex-container{
+    display: flex;
+    flex: 1 1 auto;
+    background-color: white;
+}
+
+.box{
+    flex: 1 1 auto;
+}
+
+button{
+    padding: 10px 24px;
+    border-radius: 14px;
+}
