@@ -7,10 +7,11 @@ setBoard(50);
 
 const twentyFive = document.querySelector('#b25');
 const fifty = document.querySelector('#b50');
+const seventyFive = document.querySelector('#b75');
 const oneHundred = document.querySelector('#b100');
 
-const rainbow = document.querySelector('#rainbow');
-const black = document.querySelector('#black');
+const rainbow = document.querySelector('.rainbow');
+const black = document.querySelector('.black');
 
 
 twentyFive.addEventListener('click', (e) =>{
@@ -18,6 +19,10 @@ twentyFive.addEventListener('click', (e) =>{
 })
 
 fifty.addEventListener('click', (e) =>{
+    setBoard(e.target.id.substring(1, e.target.id.length));
+})
+
+seventyFive.addEventListener('click', (e) =>{
     setBoard(e.target.id.substring(1, e.target.id.length));
 })
 
@@ -53,7 +58,7 @@ function setBoard(size){
 function blackPen(){
     document.querySelectorAll('.box').forEach(div =>{
         div.addEventListener('mouseover', ()=>{
-            div.style.backgroundColor = 'black';
+            div.style.backgroundColor = '#2b2b2b';
         })
     })
 }
@@ -67,6 +72,35 @@ function rainbowPen(){
     })
 }
 
+//Button style CSS etc. is below. I wanted to seperate this from the actualy game function programming.
+
+document.querySelectorAll('button').forEach(button =>{
+    button.addEventListener('mouseover', ()=>{
+        button.style.border = '3px solid #BFD4DB'
+    })
+})
+
+// document.querySelectorAll('button').forEach(button =>{
+//         button.addEventListener("mouseleave", ()=>{
+//             button.style.border = '2px solid black'
+//         })
+// })
+
+document.querySelectorAll('button').forEach(button =>{
+    if (button.classList.contains('black') == false && button.classList.contains('rainbow') == false){
+        button.addEventListener("mouseleave", ()=>{
+            button.style.border = '3px solid #CDCCC5'
+        })
+    }
+})
+
+black.addEventListener("mouseleave", ()=>{
+    black.style.border = '3px solid rgb(255, 251, 235)';
+})
+
+rainbow.addEventListener("mouseleave", ()=>{
+    rainbow.style.border = '3px solid #2b2b2b';
+})
 
 // for (let i = 0; i < 50; i++){
 //     const flexContainer = document.createElement('div');
