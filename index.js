@@ -1,7 +1,10 @@
 const body = document.querySelector('body');
-const bodyContainer = document.createElement('div');
-bodyContainer.classList.add('body');
-body.appendChild(bodyContainer);
+const bodyContainer = document.querySelector('.body');
+// const bodyContainer = document.createElement('div');
+// bodyContainer.classList.add('body');
+// body.appendChild(bodyContainer);
+// document.body.prepend(bodyContainer);
+
 
 setBoard(50);
 
@@ -12,6 +15,7 @@ const oneHundred = document.querySelector('#b100');
 
 const rainbow = document.querySelector('.rainbow');
 const black = document.querySelector('.black');
+const chooseColor = document.querySelector('#chooseColor');
 
 
 twentyFive.addEventListener('click', (e) =>{
@@ -33,6 +37,15 @@ oneHundred.addEventListener('click', (e) =>{
 rainbow.addEventListener('click', rainbowPen);
 black.addEventListener('click', blackPen);
 
+chooseColor.addEventListener('click', (e)=>{
+    document.querySelectorAll('.box').forEach(div =>{
+        div.removeEventListener('mouseover', blackPen);
+        div.addEventListener('mouseover', ()=>{
+            div.style.backgroundColor = e.target.value;
+        })
+    })
+})
+
 
 
 function setBoard(size){
@@ -40,7 +53,8 @@ function setBoard(size){
     bodyContainer.remove();
     const newBodyContainer = document.createElement('div');
     newBodyContainer.classList.add('body');
-    body.appendChild(newBodyContainer);
+    // body.appendChild(newBodyContainer);
+    body.insertBefore(newBodyContainer, body.children[1]);
     
     for (let i = 0; i < size; i++){
         const flexContainer = document.createElement('div');
@@ -80,12 +94,6 @@ document.querySelectorAll('button').forEach(button =>{
     })
 })
 
-// document.querySelectorAll('button').forEach(button =>{
-//         button.addEventListener("mouseleave", ()=>{
-//             button.style.border = '2px solid black'
-//         })
-// })
-
 document.querySelectorAll('button').forEach(button =>{
     if (button.classList.contains('black') == false && button.classList.contains('rainbow') == false){
         button.addEventListener("mouseleave", ()=>{
@@ -101,45 +109,3 @@ black.addEventListener("mouseleave", ()=>{
 rainbow.addEventListener("mouseleave", ()=>{
     rainbow.style.border = '3px solid #2b2b2b';
 })
-
-// for (let i = 0; i < 50; i++){
-//     const flexContainer = document.createElement('div');
-//     flexContainer.classList.add('flex-container');
-//     bodyContainer.appendChild(flexContainer);
-//     for (let p = 0; p < 50; p++){
-//         const div = document.createElement('div');
-//         div.classList.add('box');
-//         flexContainer.appendChild(div);
-//     }
-// }
-
-// document.querySelectorAll('.box').forEach(div =>{
-//     div.addEventListener('mouseover', ()=>{
-//         div.style.backgroundColor = 'black';
-//     })
-// })
-
-// sixteen.addEventListener('click', (e) =>{
-//     const bodyContainer = document.querySelector('.body');
-//     bodyContainer.remove();
-//     const newBodyContainer = document.createElement('div');
-//     newBodyContainer.classList.add('body');
-//     body.appendChild(newBodyContainer);
-    
-//     for (let i = 0; i < Number(e.target.id.substring(1, e.target.id.length)); i++){
-//         const flexContainer = document.createElement('div');
-//         flexContainer.classList.add('flex-container');
-//         newBodyContainer.appendChild(flexContainer);
-//         for (let p = 0; p < Number(e.target.id.substring(1, e.target.id.length)); p++){
-//             const div = document.createElement('div');
-//             div.classList.add('box');
-//             flexContainer.appendChild(div);
-//         }
-//     }
-    
-//     document.querySelectorAll('.box').forEach(div =>{
-//         div.addEventListener('mouseover', ()=>{
-//             div.style.backgroundColor = 'black';
-//         })
-//     })
-// })
