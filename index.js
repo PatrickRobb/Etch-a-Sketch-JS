@@ -1,17 +1,11 @@
 const body = document.querySelector('body');
 const bodyContainer = document.querySelector('.body');
-// const bodyContainer = document.createElement('div');
-// bodyContainer.classList.add('body');
-// body.appendChild(bodyContainer);
-// document.body.prepend(bodyContainer);
-
 
 setBoard(50);
 
 const twentyFive = document.querySelector('#b25');
 const fifty = document.querySelector('#b50');
 const seventyFive = document.querySelector('#b75');
-const oneHundred = document.querySelector('#b100');
 
 const rainbow = document.querySelector('.rainbow');
 const black = document.querySelector('.black');
@@ -27,10 +21,6 @@ fifty.addEventListener('click', (e) =>{
 })
 
 seventyFive.addEventListener('click', (e) =>{
-    setBoard(e.target.id.substring(1, e.target.id.length));
-})
-
-oneHundred.addEventListener('click', (e) =>{
     setBoard(e.target.id.substring(1, e.target.id.length));
 })
 
@@ -53,7 +43,6 @@ function setBoard(size){
     bodyContainer.remove();
     const newBodyContainer = document.createElement('div');
     newBodyContainer.classList.add('body');
-    // body.appendChild(newBodyContainer);
     body.insertBefore(newBodyContainer, body.children[1]);
     
     for (let i = 0; i < size; i++){
@@ -85,6 +74,20 @@ function rainbowPen(){
         })
     })
 }
+
+var dimSlider = document.querySelector('#chooseDimensions');
+var dim1 = document.querySelector('#dim1');
+var dim2 = document.querySelector('#dim2');
+
+dim1.innerHTML = dimSlider.value;
+dim2.innerHTML = dimSlider.value;
+
+dimSlider.addEventListener('input', () => {
+    dim1.innerHTML = dimSlider.value;
+    dim2.innerHTML = dimSlider.value;
+    setBoard(dimSlider.value);
+})
+
 
 //Button style CSS etc. is below. I wanted to seperate this from the actualy game function programming.
 
