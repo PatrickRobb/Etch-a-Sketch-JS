@@ -1,42 +1,49 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset="UTF-8">
-  <title>Page Title</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Page Title</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
 <body>
     <div class="title">Etch-A-Sketch</div>
-    <div class="body"></div>
-    <div class = "options">
-        <div class="left">
-            <ul>
-                <button id="b25">New 25x25</button>
-                <button id="b50">New 50x50</button>
-                <button id="b75">New 75x75</button>
-                <div id="dimensionContainer">
-                    <input type="range" min="10" max="90" id="chooseDimensions">
-                    <p>
-                        <span id="dim1"></span>
-                        #
-                        <span id="dim2"></span>
-                    </p>
-                </div>
-            </ul>
+    <div class="container">
+        <div class="options">
+            <div class="left">
+                <ul>
+                    <button id="b25">New 25x25</button>
+                    <button id="b50">New 50x50</button>
+                    <button id="b75">New 75x75</button>
+                    <div id="dimensionContainer">
+                        <p class="dimensions">Change block size</p>
+                        <input type="range" min="10" max="90" id="chooseDimensions">
+                        <p>
+                            <span id="dim1"></span>
+                            <span>by</span>
+                            <span id="dim2"></span>
+                        </p>
+                    </div>
+                </ul>
+            </div>
+            <div class="right">
+                <ul>
+                    <button class="black">Black Pen</button>
+                    <button class="rainbow">Rainbow Pen</button>
+                    <button class="choose" id="colorButton"">Choose Color
+                        <input type= "color" id="chooseColor">
+                    </button>
+                </ul>
+            </div>
         </div>
-        <div class="right">
-            <ul>
-                <button class="black">Black Pen</button>
-                <button class="rainbow">Rainbow Pen</button>
-                <button class="choose" id="colorButton"">Choose Color
-                    <input type="color" id="chooseColor">
-                </button>
-            </ul>
-        </div>
+        <div class="body"></div>
     </div>
-  <script src="index.js"></script>
+    <script src="index.js"></script>
 </body>
+
 </html>

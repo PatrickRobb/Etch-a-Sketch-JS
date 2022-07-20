@@ -1,114 +1,156 @@
-div{
-    margin:0px;
-    padding:0px;
+div {
+    margin: 0px;
+    padding: 0px;
 }
 
-body{
+body {
     display: flex;
     flex-direction: column;
     padding: 4px;
     margin: 2px;
     justify-content: space-between;
-    background-color: #BFD4DB;
-    /* background-color: #7988FF; */
-    /* background-color: #DEFCFF; */
-    /* background-color: rgb(167, 159, 149); */
+    /* background-color: #BFD4DB; */
+    background-color: #cde5ed;
 }
 
-.title{
+.title {
     display: flex;
     justify-content: center;
     padding: 5px;
     font-family: "Lucida Handwriting";
-    font-size: 40px;
-    /* color: rgb(255, 25, 0); */
-    color: #65828C;
+    font-size: 45px;
+    /* color: #155f76; */
+    /* color: #65828C; */
+    color: #537079;
 }
 
-.options{
+.options {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-wrap: wrap;
     gap: 70px;
-    padding-left: 18%;
-    padding-right: 18%;
+    /* padding-left: 10%;
+    padding-right: 2%; */
 }
 
-.left, .right{
+.left,
+.right {
     display: flex;
     align-items: center;
+    flex-direction: column;
 }
 
-ul{
+ul {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     margin: 0;
     padding: 0;
     gap: 8px;
 }
 
-.body{
+.body {
     display: flex;
     flex-direction: column;
     align-self: center;
     margin: 20px;
     margin-top: 12px;
     border: 4px solid #CDCCC5;
-    /* border: 2px solid #2b2b2b; */
-    width: 35vw;
-    height: 35vw;
+    width: 42vw;
+    height: 42vw;
 }
 
-.flex-container{
+.flex-container {
     display: flex;
     flex: 1 1 auto;
     background-color: white;
 }
 
-.box{
+.box {
     flex: 1 1 auto;
-    background-color: rgb(255, 251, 235);
+    /* background-color: rgb(255, 251, 235); */
+    background-color: rgb(255, 252, 240);
     border: 1px solid #CDCCC5;
 }
 
-button{
+button {
     padding: 10px 24px;
     border-radius: 6px;
     color: #2b2b2b;
-    background-color: rgb(255, 251, 235);
+    width: 170px;
+    height: 90px;
+    /* background-color: rgb(255, 251, 235); */
+    background-color: rgb(255, 252, 240);
     border: 3px solid #CDCCC5;
-    /* border: 3px solid rgb(149, 145, 145); */
     cursor: pointer;
+    font-size: 20px;
     font-family: 'Montserrat', sans-serif;
+    /* min-width: 0; */
 }
 
-#colorButton{
+#colorButton {
     cursor: default;
 }
 
-#chooseColor{
+#chooseColor {
     cursor: pointer;
 }
 
-.black{
+.black {
     background-color: #2b2b2b;
     color: white;
     border: 3px solid rgb(255, 251, 235);
 }
 
-.rainbow{
+.rainbow {
     background-color: #FF2DD4;
     border: 3px solid #2b2b2b;
     color: #2b2b2b;
 }
 
-#dimensionContainer{
+#dimensionContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 190px;
+    height: 100px;
 }
 
-#dimensionContainer span{
+#dimensionContainer span {
     font-family: 'Montserrat', sans-serif;
     color: #2b2b2b;
 }
-    
+
+.dimensions {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (max-width: 800px) {
+    .body {
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        margin: 20px;
+        margin-top: 12px;
+        border: 4px solid #CDCCC5;
+        width: 40vh;
+        height: 40vh;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}

@@ -12,25 +12,25 @@ const black = document.querySelector('.black');
 const chooseColor = document.querySelector('#chooseColor');
 
 
-twentyFive.addEventListener('click', (e) =>{
+twentyFive.addEventListener('click', (e) => {
     setBoard(e.target.id.substring(1, e.target.id.length));
 })
 
-fifty.addEventListener('click', (e) =>{
+fifty.addEventListener('click', (e) => {
     setBoard(e.target.id.substring(1, e.target.id.length));
 })
 
-seventyFive.addEventListener('click', (e) =>{
+seventyFive.addEventListener('click', (e) => {
     setBoard(e.target.id.substring(1, e.target.id.length));
 })
 
 rainbow.addEventListener('click', rainbowPen);
 black.addEventListener('click', blackPen);
 
-chooseColor.addEventListener('click', (e)=>{
-    document.querySelectorAll('.box').forEach(div =>{
+chooseColor.addEventListener('click', (e) => {
+    document.querySelectorAll('.box').forEach(div => {
         div.removeEventListener('mouseover', blackPen);
-        div.addEventListener('mouseover', ()=>{
+        div.addEventListener('mouseover', () => {
             div.style.backgroundColor = e.target.value;
         })
     })
@@ -38,18 +38,20 @@ chooseColor.addEventListener('click', (e)=>{
 
 
 
-function setBoard(size){
+function setBoard(size) {
     const bodyContainer = document.querySelector('.body');
     bodyContainer.remove();
     const newBodyContainer = document.createElement('div');
     newBodyContainer.classList.add('body');
-    body.insertBefore(newBodyContainer, body.children[1]);
-    
-    for (let i = 0; i < size; i++){
+    // body.insertBefore(newBodyContainer, body.children[1]);
+    Container = document.querySelector('.container');
+    Container.appendChild(newBodyContainer);
+
+    for (let i = 0; i < size; i++) {
         const flexContainer = document.createElement('div');
         flexContainer.classList.add('flex-container');
         newBodyContainer.appendChild(flexContainer);
-        for (let p = 0; p < size; p++){
+        for (let p = 0; p < size; p++) {
             const div = document.createElement('div');
             div.classList.add('box');
             flexContainer.appendChild(div);
@@ -58,19 +60,19 @@ function setBoard(size){
     blackPen();
 }
 
-function blackPen(){
-    document.querySelectorAll('.box').forEach(div =>{
-        div.addEventListener('mouseover', ()=>{
+function blackPen() {
+    document.querySelectorAll('.box').forEach(div => {
+        div.addEventListener('mouseover', () => {
             div.style.backgroundColor = '#2b2b2b';
         })
     })
 }
 
-function rainbowPen(){
-    document.querySelectorAll('.box').forEach(div =>{
+function rainbowPen() {
+    document.querySelectorAll('.box').forEach(div => {
         div.removeEventListener('mouseover', blackPen);
-        div.addEventListener('mouseover', ()=>{
-            div.style.backgroundColor = '#'+(0x1000000+Math.random()*0xffffff).toString(16).substr(1,6)
+        div.addEventListener('mouseover', () => {
+            div.style.backgroundColor = '#' + (0x1000000 + Math.random() * 0xffffff).toString(16).substr(1, 6)
         })
     })
 }
@@ -91,24 +93,24 @@ dimSlider.addEventListener('input', () => {
 
 //Button style CSS etc. is below. I wanted to seperate this from the actualy game function programming.
 
-document.querySelectorAll('button').forEach(button =>{
-    button.addEventListener('mouseover', ()=>{
+document.querySelectorAll('button').forEach(button => {
+    button.addEventListener('mouseover', () => {
         button.style.border = '3px solid #BFD4DB'
     })
 })
 
-document.querySelectorAll('button').forEach(button =>{
-    if (button.classList.contains('black') == false && button.classList.contains('rainbow') == false){
-        button.addEventListener("mouseleave", ()=>{
+document.querySelectorAll('button').forEach(button => {
+    if (button.classList.contains('black') == false && button.classList.contains('rainbow') == false) {
+        button.addEventListener("mouseleave", () => {
             button.style.border = '3px solid #CDCCC5'
         })
     }
 })
 
-black.addEventListener("mouseleave", ()=>{
+black.addEventListener("mouseleave", () => {
     black.style.border = '3px solid rgb(255, 251, 235)';
 })
 
-rainbow.addEventListener("mouseleave", ()=>{
+rainbow.addEventListener("mouseleave", () => {
     rainbow.style.border = '3px solid #2b2b2b';
 })
